@@ -49,13 +49,8 @@ export default {
         description: this.description
       });
 
-      this.taskClearFields();
-    }
-  },
-  computed: {
-    taskClearFields() {
       this.title = "";
-      this.description = "";
+      ths.description = "";
     }
   }
 };
