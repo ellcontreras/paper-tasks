@@ -6,6 +6,10 @@ import "./registerServiceWorker";
 
 import "papercss/dist/paper.min.css";
 
+import VeeValidate from "vee-validate";
+
+Vue.use(VeeValidate);
+
 Vue.config.productionTip = false;
 
 new Vue({
