@@ -9,6 +9,25 @@
   </div>
 </template>
 
+<script>
+import { ADD_TASK } from "@/store/mutation-types";
+
+export default {
+  name: "App",
+  created() {
+    this.$store.subscribe(mutation => {
+      console.log(mutation);
+      switch (mutation.type) {
+        case ADD_TASK:
+          this.$toastr.success("Se ha añadido una tarea");
+          break;
+      }
+    });
+  }
+};
+</script>
+
+
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
