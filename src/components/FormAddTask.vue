@@ -28,7 +28,7 @@
         >{{ errors.first('description') }}</div>
       </div>
       <button
-        @click="handleAdd()"
+        @click="ADD_TASK()"
         :disabled="!(title && description)"
         class="btn-block btn-secondary"
       >Add!</button>
@@ -43,14 +43,16 @@ export default {
     description: ""
   }),
   methods: {
-    handleAdd() {
+    ADD_TASK() {
       this.$store.dispatch("ADD_TASK", {
         title: this.title,
         description: this.description
       });
 
       this.title = "";
-      ths.description = "";
+      this.description = "";
+
+      this.$nextTick(() => this.$validator.reset());
     }
   }
 };
