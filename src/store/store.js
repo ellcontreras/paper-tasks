@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
 
-import { ADD_TASK } from "./mutation-types";
+import { ADD_TASK, DELETE_TASK } from "./mutation-types";
 
 Vue.use(Vuex);
 
@@ -18,6 +18,11 @@ export default new Vuex.Store({
   mutations: {
     [ADD_TASK](state, payload) {
       state.tasks.push(payload);
+    },
+    [DELETE_TASK](state, payload) {
+      state.tasks = state.tasks.filter((value, index, arr) => {
+        return value.title !== payload.title;
+      });
     }
   },
   actions: {

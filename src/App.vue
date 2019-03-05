@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { ADD_TASK } from "@/store/mutation-types";
+import { ADD_TASK, DELETE_TASK } from "@/store/mutation-types";
 
 export default {
   name: "App",
@@ -20,6 +20,9 @@ export default {
       switch (mutation.type) {
         case ADD_TASK:
           this.$toastr.success("Se ha añadido una tarea");
+          break;
+        case DELETE_TASK:
+          this.$toastr.error("Se ha borrado con exito!");
           break;
       }
     });
